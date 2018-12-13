@@ -1,12 +1,8 @@
-//
-//  TableCells.swift
-//  TableTest
-//
-//  Created by Igors Nemenonoks on 27/08/2017.
-//  Copyright © 2017 Chili. All rights reserved.
-//
-
 import UIKit
+
+enum ActionIdentifier: String {
+    case followUser, simpleButton
+}
 
 class UserCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var avatarView: UIImageView!
@@ -21,7 +17,7 @@ class UserCell: UITableViewCell, ConfigurableCell {
     }
     
     @IBAction func onFollowTap(_ sender: Any) {
-        configurator.actionProxy?.invoke(action: .custom(.followUser), cell: self, configurator: configurator)
+        configurator.actionProxy?.invoke(action: .custom(ActionIdentifier.followUser.rawValue), cell: self, configurator: configurator)
     }
 }
 
@@ -48,7 +44,7 @@ class ImageCell: UITableViewCell, ConfigurableCell {
     }
     
     @IBAction func didPressButton(_ sender: UIButton) {
-        configurator.actionProxy?.invoke(action: .custom(.simpleButton), cell: self, configurator: configurator)
+        configurator.actionProxy?.invoke(action: .custom(ActionIdentifier.simpleButton.rawValue), cell: self, configurator: configurator)
     }
 }
 

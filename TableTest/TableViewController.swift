@@ -17,13 +17,13 @@ class TableViewController: UITableViewController {
     private func addHandlers() {
         actionsProxy.on(.didSelect) { (c: UserCellConfig, cell) in
             print("did select user cell", c.item, cell)
-        }.on(.custom(.followUser)) { (c: UserCellConfig, cell) in
+        }.on(.custom(ActionIdentifier.followUser.rawValue)) { (c: UserCellConfig, cell) in
             print("follow user", c.item)
         }.on(.didSelect) { (c: ImageCellConfig, cell) in
             print("did select image cell", c.item, cell)
         }.on(.didSelect) { (c: MessageCellConfig, cell) in
             print("did select message cell", c.item, cell)
-        }.on(.custom(.simpleButton)) { (c: ImageCellConfig, cell) in
+        }.on(.custom(ActionIdentifier.simpleButton.rawValue)) { (c: ImageCellConfig, cell) in
             print("simple button action")
         }
     }

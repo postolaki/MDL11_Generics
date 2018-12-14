@@ -29,8 +29,14 @@ class TableViewController: UITableViewController {
     }
 
     @IBAction func onUpdate(_ sender: Any) {
-        self.viewModel.update()
-        tableView.reloadData()
+        viewModel.update()
+        let indexSet = IndexSet(integersIn: 0 ..< tableView.numberOfSections)
+        tableView.reloadSections(indexSet, with: .fade)
+        
+        let sections = tableView.numberOfSections - 1
+        let rows = tableView.numberOfRows(inSection: sections) - 1
+        let indexPath = IndexPath(row: rows, section: sections)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
 }
 

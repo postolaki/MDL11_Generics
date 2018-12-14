@@ -16,6 +16,7 @@ class TableViewModel {
     ]
 
     func update() {
-        items.shuffle()
+//        items.shuffle()
+        items.append(items.randomElement()!)
     }
 }

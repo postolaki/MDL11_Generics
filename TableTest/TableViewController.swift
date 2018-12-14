@@ -47,6 +47,7 @@ extension TableViewController {
         let cellConfigurator = viewModel.items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: type(of: cellConfigurator).reuseId, for: indexPath)
         cellConfigurator.configure(cell: cell, actionProxy: actionsProxy)
+//        cellConfigurator.configure(cell: cell)
         return cell
     }
     

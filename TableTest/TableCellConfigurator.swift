@@ -11,9 +11,13 @@ class TableCellConfigurator<CellType: ConfigurableCell, DataType: Hashable>: Cel
         self.item = item
     }
     
-    func configure(cell: UIView, actionProxy: CellActionProxy? = nil) {
-        self.actionProxy = actionProxy
+    func configure(cell: UIView) {
         (cell as! CellType).configure(data: item, configurator: self)
+    }
+    
+    func configure(cell: UIView, actionProxy: CellActionProxy) {
+        self.actionProxy = actionProxy
+        configure(cell: cell)
     }
 
     var hash: Int {

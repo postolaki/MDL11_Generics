@@ -12,7 +12,8 @@ extension ConfigurableCell {
 
 protocol CellConfigurator {
     static var reuseId: String { get }
-    func configure(cell: UIView, actionProxy: CellActionProxy?)
+    func configure(cell: UIView)
+    func configure(cell: UIView, actionProxy: CellActionProxy)
     var hash: Int { get }
     var actionProxy: CellActionProxy? {get set}
 }
